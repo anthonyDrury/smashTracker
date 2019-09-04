@@ -1,0 +1,20 @@
+.smashHome {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  h1 {
+    text-align: center;
+  }
+  &__actionList {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__actionItem {
+    flex: 1 0 35%;
+    margin: 3rem 0;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+  }
+}

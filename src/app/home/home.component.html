@@ -1,0 +1,24 @@
+<div class="smashHome">
+  <!-- Biggest Loser / Biggest Winner -->
+
+  <app-smash-player-total
+    [smashPlayers]="smashPlayers"
+  ></app-smash-player-total>
+
+  <app-smash-player-win
+    [smashPlayers]="bettingList"
+    (playerWon)="onPlayerWon($event)"
+  ></app-smash-player-win>
+
+  <h1>Who is betting?</h1>
+  <div class="smashHome__actionList">
+    <ng-container *ngFor="let smashPlayer of smashPlayers">
+      <app-smash-player-action
+        class="smashHome__actionItem"
+        [smashPlayer]="smashPlayer"
+        [checked]="bettingList.includes(smashPlayer)"
+        (toggle)="addOrRemovePlayerFromBettingList(smashPlayer)"
+      ></app-smash-player-action>
+    </ng-container>
+  </div>
+</div>

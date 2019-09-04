@@ -1,0 +1,14 @@
+
+
+Home Page
+-  List of Pay {{ name }} buttons
+-  Clear all and Double buttons (modal confirmation popup for this, uses personal double or nothing)
+-  Total debt/credit
+
+Table Page
+- Table of who owes what to who
+
+
+
+Automation
+- Reset double or nothing to 1 per week

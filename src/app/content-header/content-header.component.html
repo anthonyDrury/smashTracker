@@ -1,0 +1,13 @@
+<mat-toolbar class="smashHeader">
+  <span class="smashHeader__title">{{ name }}</span>
+
+  <nav *ngIf="tabs" class="smashHeader__navbar">
+    <a
+      *ngFor="let tab of tabs"
+      [routerLink]="tab.path"
+      routerLinkActive="active"
+      class="smashHeader__navItem"
+      >{{ tab.name }}
+    </a>
+  </nav>
+</mat-toolbar>

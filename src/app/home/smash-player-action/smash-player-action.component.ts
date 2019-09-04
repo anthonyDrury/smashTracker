@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
+import { Component, EventEmitter, Input, Output } from "@angular/core";
 import { Observable } from "rxjs";
 import { smashPlayer } from "../../models/smash.model";
 import { SmashService } from "../../smashService/smash.service";
@@ -8,17 +8,9 @@ import { SmashService } from "../../smashService/smash.service";
   templateUrl: "./smash-player-action.component.html",
   styleUrls: ["./smash-player-action.component.scss"]
 })
-export class SmashPlayerActionComponent implements OnInit {
-  private _smashPlayer?: smashPlayer;
-
+export class SmashPlayerActionComponent {
   @Input()
-  public set smashPlayer(player: smashPlayer) {
-    this._smashPlayer = player;
-  }
-
-  public get smashPlayer(): smashPlayer {
-    return this._smashPlayer;
-  }
+  public smashPlayer: smashPlayer;
 
   @Input()
   public checked: boolean = false;
@@ -33,6 +25,4 @@ export class SmashPlayerActionComponent implements OnInit {
   public onToggleChange(): void {
     this.toggle.emit(this.smashPlayer);
   }
-
-  ngOnInit() {}
 }

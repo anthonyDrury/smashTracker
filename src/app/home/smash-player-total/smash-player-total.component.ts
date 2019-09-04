@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from "@angular/core";
+import { Component, Input } from "@angular/core";
 import { smashPlayer } from "../../models/smash.model";
 
 @Component({
@@ -6,7 +6,7 @@ import { smashPlayer } from "../../models/smash.model";
   templateUrl: "./smash-player-total.component.html",
   styleUrls: ["./smash-player-total.component.scss"]
 })
-export class SmashPlayerTotalComponent implements OnInit {
+export class SmashPlayerTotalComponent {
   private _smashPlayers?: Array<smashPlayer>;
 
   @Input()
@@ -27,8 +27,4 @@ export class SmashPlayerTotalComponent implements OnInit {
   }
 
   public smashTotal: number = 0;
-
-  constructor() {}
-
-  ngOnInit() {}
 }

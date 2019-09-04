@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
+import { Component, EventEmitter, Input, Output } from "@angular/core";
 import { MatSelectChange } from "@angular/material/select";
 import { smashPlayer } from "../../models/smash.model";
 
@@ -7,7 +7,7 @@ import { smashPlayer } from "../../models/smash.model";
   templateUrl: "./smash-player-win.component.html",
   styleUrls: ["./smash-player-win.component.scss"]
 })
-export class SmashPlayerWinComponent implements OnInit {
+export class SmashPlayerWinComponent {
   @Input()
   public smashPlayers?: Array<smashPlayer>;
 
@@ -15,10 +15,6 @@ export class SmashPlayerWinComponent implements OnInit {
 
   @Output()
   public playerWon: EventEmitter<smashPlayer> = new EventEmitter<smashPlayer>();
-
-  constructor() {}
-
-  ngOnInit() {}
 
   public onDisburse(): void {
     if (this.selectedPlayer !== undefined) {

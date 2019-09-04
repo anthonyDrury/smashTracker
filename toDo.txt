@@ -1,14 +1,30 @@
-
-
 Home Page
--  List of Pay {{ name }} buttons
--  Clear all and Double buttons (modal confirmation popup for this, uses personal double or nothing)
--  Total debt/credit
+- Biggest Loser/Winner
+- Somehow to view/use double or nothings (multiple users can at the same time)
+- Team Battle options
 
 Table Page
-- Table of who owes what to who
+- Ability to manually edit
 
+Rules Page
+- Gather rules and display them
 
+Admin Page
+- Resest double or nothing
+- Reset all/specific values
+- Add/Remove/Edit users
+
+General
+- Style improvement
+- Make publically available to users via domain
+- store state in localStorage, update on changes and retrieve on visit
+- Change use of user.name as key to user.userId
+- Move componenets into own folder
+- Better TSLint/Prettier rules
+
+Testing
+- Add unit tests for components and services
+- Add e2e tests
 
 Automation
 - Reset double or nothing to 1 per week

@@ -1,6 +1,6 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnDestroy, OnInit } from "@angular/core";
 import { Select } from "@ngxs/store";
-import { Observable } from "rxjs";
+import { Observable, Subscription } from "rxjs";
 import { smashPlayer } from "../models/smash.model";
 import { SmashService } from "../smashService/smash.service";
 import { SmashState } from "../state/smash.state";
@@ -10,7 +10,9 @@ import { SmashState } from "../state/smash.state";
   templateUrl: "./table.component.html",
   styleUrls: ["./table.component.scss"]
 })
-export class TableComponent implements OnInit {
+export class TableComponent implements OnInit, OnDestroy {
+  private _subscriptions: Array<Subscription> = [];
+
   @Select(SmashState.getSmashPlayers) smashData$: Observable<
     Array<smashPlayer>
   >;
@@ -20,30 +22,32 @@ export class TableComponent implements OnInit {
 
   constructor(public readonly smashService: SmashService) {}
 
-  private createTableData(): void {
-    this.smashData$.subscribe((players: Array<smashPlayer>) => {
-      players.forEach((value: smashPlayer) => {
-        this.displayedColumns.push(value.name);
-      });
-
-      players.forEach((player: smashPlayer) => {
-        let elementObj: {} = {
-          name: player.name
-        };
-        player.owes.forEach((amount: number, name: string) => {
-          const owedName:
-            | smashPlayer
-            | undefined = this.smashService.getPlayerFromName(players, name);
-          if (owedName !== undefined) {
-            elementObj[owedName.name] = amount;
-          }
+  public ngOnInit(): void {
+    this._subscriptions.push(
+      this.smashData$.subscribe((players: Array<smashPlayer>) => {
+        players.forEach((value: smashPlayer) => {
+          this.displayedColumns.push(value.name);
         });
-        this.dataSource.push(elementObj);
-      });
-    });
+
+        players.forEach((player: smashPlayer) => {
+          let elementObj: {} = {
+            name: player.name
+          };
+          player.owes.forEach((amount: number, name: string) => {
+            const owedName:
+              | smashPlayer
+              | undefined = this.smashService.getPlayerFromName(players, name);
+            if (owedName !== undefined) {
+              elementObj[owedName.name] = amount;
+            }
+          });
+          this.dataSource.push(elementObj);
+        });
+      })
+    );
   }
 
-  public ngOnInit(): void {
-    this.createTableData();
+  public ngOnDestroy(): void {
+    this._subscriptions.forEach((s: Subscription) => s.unsubscribe());
   }
 }

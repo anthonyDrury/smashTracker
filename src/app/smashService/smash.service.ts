@@ -12,8 +12,6 @@ export class SmashService {
     Array<smashPlayer>
   >;
 
-  constructor() {}
-
   public getPlayerFromName(
     players: Array<smashPlayer>,
     name: string

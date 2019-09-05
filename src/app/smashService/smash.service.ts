@@ -1,8 +1,8 @@
 import { Injectable } from "@angular/core";
 import { Select } from "@ngxs/store";
 import { Observable } from "rxjs";
-import { smashPlayer } from "../models/smash.model";
-import { SmashState } from "../state/smash.state";
+import { smashPlayer } from "../stateManagement/models/smash.model";
+import { SmashState } from "../stateManagement/state/smash.state";
 
 @Injectable({
   providedIn: "root"

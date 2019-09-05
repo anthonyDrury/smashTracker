@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { tab } from "./content-header/content-header.types";
+import { tab } from "./components/content-header/content-header.types";
 
 @Component({
   selector: "app-root",

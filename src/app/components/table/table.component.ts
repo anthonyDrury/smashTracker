@@ -1,9 +1,9 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
 import { Select } from "@ngxs/store";
 import { Observable, Subscription } from "rxjs";
-import { smashPlayer } from "../models/smash.model";
-import { SmashService } from "../smashService/smash.service";
-import { SmashState } from "../state/smash.state";
+import { SmashService } from "../../smashService/smash.service";
+import { smashPlayer } from "../../stateManagement/models/smash.model";
+import { SmashState } from "../../stateManagement/state/smash.state";
 
 @Component({
   selector: "app-table",

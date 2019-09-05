@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from "@angular/core";
-import { smashPlayer } from "../../models/smash.model";
+import { smashPlayer } from "../../../stateManagement/models/smash.model";
 
 @Component({
   selector: "app-smash-player-biggest",

@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from "@angular/core";
 import { MatSelectChange } from "@angular/material/select";
-import { smashPlayer } from "../../models/smash.model";
+import { smashPlayer } from "../../../stateManagement/models/smash.model";
 
 @Component({
   selector: "app-smash-player-win",

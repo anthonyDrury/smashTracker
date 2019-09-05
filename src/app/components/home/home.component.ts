@@ -5,9 +5,9 @@ import {
   AddBettingPlayer,
   DeleteBettingPlayer,
   SmashPlayerWon
-} from "../actions/smash.action";
-import { smashPlayer } from "../models/smash.model";
-import { SmashState } from "../state/smash.state";
+} from "../../stateManagement/actions/smash.action";
+import { smashPlayer } from "../../stateManagement/models/smash.model";
+import { SmashState } from "../../stateManagement/state/smash.state";
 
 @Component({
   selector: "app-home",

@@ -1,7 +1,6 @@
 import { Component, EventEmitter, Input, Output } from "@angular/core";
 import { Observable } from "rxjs";
-import { smashPlayer } from "../../models/smash.model";
-import { SmashService } from "../../smashService/smash.service";
+import { smashPlayer } from "../../../stateManagement/models/smash.model";
 
 @Component({
   selector: "app-smash-player-action",
@@ -19,8 +18,6 @@ export class SmashPlayerActionComponent {
   public toggle: EventEmitter<smashPlayer> = new EventEmitter<smashPlayer>();
 
   public owesAmount$?: Observable<number>;
-
-  constructor(public readonly smashService: SmashService) {}
 
   public onToggleChange(): void {
     this.toggle.emit(this.smashPlayer);

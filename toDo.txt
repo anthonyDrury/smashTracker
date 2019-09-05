@@ -1,5 +1,4 @@
 Home Page
-- Biggest Loser/Winner
 - Somehow to view/use double or nothings (multiple users can at the same time)
 - Team Battle options
 
@@ -19,7 +18,6 @@ General
 - Make publically available to users via domain
 - store state in localStorage, update on changes and retrieve on visit
 - Change use of user.name as key to user.userId
-- Move componenets into own folder
 - Better TSLint/Prettier rules
 
 Testing

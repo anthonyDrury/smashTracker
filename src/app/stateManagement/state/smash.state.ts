@@ -1,4 +1,5 @@
 import { Action, Selector, State, StateContext } from "@ngxs/store";
+import { names } from "../../smashService/smash.data";
 import {
   AddBettingPlayer,
   AddSmashPlayer,
@@ -7,7 +8,6 @@ import {
   SmashPlayerWon
 } from "../actions/smash.action";
 import { smashPlayer } from "../models/smash.model";
-import { names } from "../smashService/smash.data";
 
 export class smashStateModel {
   smashPlayers: Array<smashPlayer>;

@@ -1,5 +1,8 @@
-import { Component, Input } from "@angular/core";
-import { smashPlayer } from "../../../stateManagement/models/smash.model";
+import { ChangeDetectorRef, Component, Input } from "@angular/core";
+import {
+  oweObj,
+  smashPlayer
+} from "../../../stateManagement/models/smash.model";
 
 @Component({
   selector: "app-smash-player-total",
@@ -16,7 +19,7 @@ export class SmashPlayerTotalComponent {
     this.smashTotal = this._smashPlayers
       .map((player: smashPlayer) =>
         Array.from(player.owes)
-          .map((owes: [string, number]) => owes[1])
+          .map((owe: oweObj) => owe.amount)
           .reduce((x: number, y: number) => x + y)
       )
       .reduce((x: number, y: number) => x + y);
@@ -27,4 +30,6 @@ export class SmashPlayerTotalComponent {
   }
 
   public smashTotal: number = 0;
+
+  constructor(private readonly changeDetector: ChangeDetectorRef) {}
 }

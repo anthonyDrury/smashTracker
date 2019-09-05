@@ -1,8 +1,8 @@
-import { Component, OnDestroy, OnInit } from "@angular/core";
+import { ChangeDetectorRef, Component, OnDestroy, OnInit } from "@angular/core";
 import { Select } from "@ngxs/store";
 import { Observable, Subscription } from "rxjs";
-import { SmashService } from "../../smashService/smash.service";
-import { smashPlayer } from "../../stateManagement/models/smash.model";
+import { getPlayerFromName } from "../../helpers/smash.helper";
+import { oweObj, smashPlayer } from "../../stateManagement/models/smash.model";
 import { SmashState } from "../../stateManagement/state/smash.state";
 
 @Component({
@@ -20,7 +20,7 @@ export class TableComponent implements OnInit, OnDestroy {
   public displayedColumns: Array<string> = ["name"];
   public dataSource: Array<{}> = [];
 
-  constructor(public readonly smashService: SmashService) {}
+  public constructor(private readonly changeDetector: ChangeDetectorRef) {}
 
   public ngOnInit(): void {
     this._subscriptions.push(
@@ -33,16 +33,18 @@ export class TableComponent implements OnInit, OnDestroy {
           let elementObj: {} = {
             name: player.name
           };
-          player.owes.forEach((amount: number, name: string) => {
-            const owedName:
-              | smashPlayer
-              | undefined = this.smashService.getPlayerFromName(players, name);
+          player.owes.forEach((owe: oweObj) => {
+            const owedName: smashPlayer | undefined = getPlayerFromName(
+              players,
+              owe.name
+            );
             if (owedName !== undefined) {
-              elementObj[owedName.name] = amount;
+              elementObj[owedName.name] = owe.amount;
             }
           });
           this.dataSource.push(elementObj);
         });
+        this.changeDetector.detectChanges();
       })
     );
   }

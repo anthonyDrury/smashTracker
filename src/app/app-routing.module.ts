@@ -1,9 +1,7 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
-import { NgxsModule } from "@ngxs/store";
 import { HomeComponent } from "./components/home/home.component";
 import { TableComponent } from "./components/table/table.component";
-import { SmashState } from "./stateManagement/state/smash.state";
 
 const routes: Routes = [
   {
@@ -23,7 +21,7 @@ const routes: Routes = [
 
 // tslint:disable-next-line: whitespace
 @NgModule({
-  imports: [RouterModule.forRoot(routes), NgxsModule.forRoot([SmashState])],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule {}

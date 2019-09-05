@@ -16,7 +16,6 @@ Admin Page
 General
 - Style improvement
 - Make publically available to users via domain
-- store state in localStorage, update on changes and retrieve on visit
 - Change use of user.name as key to user.userId
 - Better TSLint/Prettier rules
 

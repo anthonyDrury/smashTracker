@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from "@angular/core";
+import { Component, Input } from "@angular/core";
+import { getTotalOwed, getTotalOwes } from "../../../helpers/smash.helper";
 import { smashPlayer } from "../../../stateManagement/models/smash.model";
 
 @Component({
@@ -6,7 +7,7 @@ import { smashPlayer } from "../../../stateManagement/models/smash.model";
   templateUrl: "./smash-player-biggest.component.html",
   styleUrls: ["./smash-player-biggest.component.scss"]
 })
-export class SmashPlayerBiggestComponent implements OnInit {
+export class SmashPlayerBiggestComponent {
   private _smashPlayers?: Array<smashPlayer>;
 
   @Input()
@@ -14,12 +15,12 @@ export class SmashPlayerBiggestComponent implements OnInit {
     this._smashPlayers = players;
 
     this._smashPlayers.forEach((player: smashPlayer) => {
-      if (player.getTotalOwes() > this.biggestLoserValue) {
-        this.biggestLoserValue = player.getTotalOwes();
+      if (getTotalOwes(player) > this.biggestLoserValue) {
+        this.biggestLoserValue = getTotalOwes(player);
         this.biggestLoser = player;
       }
-      if (player.getTotalOwed(this._smashPlayers) > this.biggestWinnerValue) {
-        this.biggestWinnerValue = player.getTotalOwed(this._smashPlayers);
+      if (getTotalOwed(player, this._smashPlayers) > this.biggestWinnerValue) {
+        this.biggestWinnerValue = getTotalOwed(player, this._smashPlayers);
         this.biggestWinner = player;
       }
     });
@@ -34,8 +35,4 @@ export class SmashPlayerBiggestComponent implements OnInit {
 
   public biggestWinner: smashPlayer;
   public biggestWinnerValue: number = 0;
-
-  constructor() {}
-
-  ngOnInit() {}
 }

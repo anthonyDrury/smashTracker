@@ -3,7 +3,7 @@ import { smashPlayer } from "../models/smash.model";
 export class AddSmashPlayer {
   static readonly type = "[smashPlayer] AddSmashPlayer";
 
-  constructor(public payload: smashPlayer) {}
+  constructor(public player: smashPlayer) {}
 }
 
 export class DeleteSmashPlayer {
@@ -15,7 +15,7 @@ export class DeleteSmashPlayer {
 export class AddBettingPlayer {
   static readonly type = "[smashPlayer] AddBettingPlayer";
 
-  constructor(public payload: smashPlayer) {}
+  constructor(public player: smashPlayer) {}
 }
 
 export class DeleteBettingPlayer {

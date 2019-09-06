@@ -8,7 +8,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 ## Github Pages
 
-run `ng build --prod --output-path docs --base-href smashTracker`
+run `ng build --prod --output-path docs --base-href "https://anthonyDrury.github.io/smashTracker/"`
 
 Make a copy of `docs/index.html` and name it `docs/404.html`.
 

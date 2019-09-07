@@ -1,13 +1,12 @@
-<mat-toolbar class="smashHeader">
-  <span class="smashHeader__title">{{ name }}</span>
-
-  <nav *ngIf="tabs" class="smashHeader__navbar">
-    <a
-      *ngFor="let tab of tabs"
-      [routerLink]="tab.path"
-      routerLinkActive="active"
-      class="smashHeader__navItem"
-      >{{ tab.name }}
-    </a>
-  </nav>
-</mat-toolbar>
+<mat-toolbar>smashTracker</mat-toolbar>
+<nav mat-tab-nav-bar class="smashHeader__nav">
+  <a
+    mat-tab-link
+    *ngFor="let tab of tabs"
+    [routerLink]="tab.path"
+    routerLinkActive
+    #rla="routerLinkActive"
+    [active]="rla.isActive"
+    >{{ tab.name }}
+  </a>
+</nav>

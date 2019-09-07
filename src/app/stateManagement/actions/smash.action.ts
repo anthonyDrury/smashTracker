@@ -30,6 +30,12 @@ export class SmashPlayerWon {
   constructor(public player: smashPlayer) {}
 }
 
+export class EditSmashPlayerOwes {
+  static readonly type = "[smashPlayer] EditSmashPlayer";
+
+  constructor(public player: smashPlayer) {}
+}
+
 export class GetSmashPlayerFromId {
   static readonly type = "[smashPlayer] GetSmashPlayerFromId";
 

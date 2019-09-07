@@ -22,9 +22,15 @@ export class TableComponent implements OnInit, OnDestroy {
 
   public constructor(private readonly changeDetector: ChangeDetectorRef) {}
 
+  private resetTable(): void {
+    this.displayedColumns = ["name"];
+    this.dataSource = [];
+  }
+
   public ngOnInit(): void {
     this._subscriptions.push(
       this.smashData$.subscribe((players: Array<smashPlayer>) => {
+        this.resetTable();
         players.forEach((value: smashPlayer) => {
           this.displayedColumns.push(value.name);
         });

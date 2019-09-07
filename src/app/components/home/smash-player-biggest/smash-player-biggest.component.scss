@@ -1,15 +1,24 @@
+@import "./../../../../assets/styles/breakpoints.scss";
+
 :host {
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 
 .smashBiggest {
   &__item {
-    width: 50%;
+    width: 40%;
     text-align: center;
-    border: 1px solid grey;
-    border-radius: 0.5rem;
-    padding: 1rem 2rem;
+
+    @include respond-to("mobile") {
+      width: 50%;
+    }
+    &--winner {
+      background-color: #b9f6ca;
+    }
+    &--loser {
+      background-color: #ff8a80;
+    }
   }
 }

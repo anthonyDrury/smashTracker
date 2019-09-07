@@ -5,6 +5,7 @@ import {
   AddSmashPlayer,
   DeleteBettingPlayer,
   DeleteSmashPlayer,
+  EditSmashPlayerOwes,
   SmashPlayerWon
 } from "../actions/smash.action";
 import { oweObj, smashPlayer } from "../models/smash.model";
@@ -72,6 +73,24 @@ export class SmashState implements NgxsOnInit {
     });
   }
 
+  // Edit a player
+  @Action(EditSmashPlayerOwes)
+  editPlayerOwes(
+    context: StateContext<smashStateModel>,
+    action: EditSmashPlayerOwes
+  ): void {
+    const state = context.getState();
+
+    context.patchState({
+      smashPlayers: new Array(
+        ...state.smashPlayers.filter(
+          (player: smashPlayer) => player.userId !== action.player.userId
+        ),
+        action.player
+      )
+    });
+  }
+
   // Add a betting player
   @Action(AddBettingPlayer)
   addBetter(
@@ -104,7 +123,7 @@ export class SmashState implements NgxsOnInit {
     });
   }
 
-  // Delete a player
+  // A player won, edit oweing amounts
   @Action(SmashPlayerWon)
   playerWon(
     context: StateContext<smashStateModel>,

@@ -9,9 +9,4 @@ import { tab } from "./content-header.types";
 export class ContentHeaderComponent {
   @Input()
   public tabs?: Array<tab>;
-
-  @Input()
-  public name?: string;
-
-  constructor() {}
 }

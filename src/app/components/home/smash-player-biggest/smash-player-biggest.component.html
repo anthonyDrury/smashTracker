@@ -1,7 +1,9 @@
-<div class="smashBiggest__item">
-  Biggest Winner is {{ biggestWinner?.name }} winning: ${{ biggestWinnerValue }}
-</div>
+<mat-card class="smashBiggest__item smashBiggest__item--winner">
+  <h3>Big Winner</h3>
 
-<div class="smashBiggest__item">
-  Biggest Loser is {{ biggestLoser?.name }} losing: ${{ biggestLoserValue }}
-</div>
+  <p>{{ biggestWinner?.name }}: ${{ biggestWinnerValue }}</p>
+</mat-card>
+<mat-card class="smashBiggest__item smashBiggest__item--loser">
+  <h3>Big Loser</h3>
+  <p>{{ biggestLoser?.name }}: ${{ biggestLoserValue }}</p>
+</mat-card>

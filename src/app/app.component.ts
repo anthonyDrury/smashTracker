@@ -7,7 +7,6 @@ import { tab } from "./components/content-header/content-header.types";
   styleUrls: ["./app.component.scss"]
 })
 export class AppComponent {
-  public title: string = "smashTracker";
   public tabs: Array<tab> = [
     { name: "home", path: "/home" },
     { name: "table", path: "/table" }

@@ -1,3 +1,5 @@
+@import "./../../../assets/styles/breakpoints.scss";
+
 .smashHome {
   display: flex;
   justify-content: center;
@@ -5,18 +7,29 @@
   width: 90%;
   margin: 0 auto;
   h1 {
+    width: 100%;
     text-align: center;
   }
   &__actionList {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
   }
 
   &__actionItem {
     flex: 1 0 35%;
-    margin: 3rem 0;
-    padding: 1rem;
+    margin: 2rem 0;
     display: flex;
     justify-content: center;
+
+    @include respond-to("tablet") {
+      flex: 1;
+    }
+
+    @include respond-to("mobile") {
+      margin: 1rem 0;
+      padding: 1rem;
+      flex: 1;
+    }
   }
 }

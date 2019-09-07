@@ -1,9 +1,7 @@
-<mat-card class="smashWin">
-  <mat-card-header>
-    <mat-card-title>Disburse Funds</mat-card-title>
-  </mat-card-header>
-  <mat-form-field>
-    <mat-label>Select Winner</mat-label>
+<div class="smashEditTable">
+  <h3>Edit</h3>
+  <mat-form-field class="editTable__field">
+    <mat-label>Edit Players Owes</mat-label>
     <mat-select (selectionChange)="playerSelected($event)">
       <mat-option *ngFor="let player of smashPlayers" [value]="player.userId">
         {{ player.name }}
@@ -12,9 +10,9 @@
   </mat-form-field>
   <button
     mat-stroked-button
-    (click)="onDisburse()"
+    (click)="openDialog()"
     [disabled]="!selectedPlayer"
   >
-    {{ selectedPlayer ? selectedPlayer.name : "" }} won!
+    manually edit {{ selectedPlayer ? selectedPlayer.name : "" }}
   </button>
-</mat-card>
+</div>

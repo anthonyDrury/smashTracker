@@ -15,7 +15,6 @@ Admin Page
 
 General
 - Style improvement
-- Make publically available to users via domain
 - Change use of user.name as key to user.userId
 - Better TSLint/Prettier rules
 

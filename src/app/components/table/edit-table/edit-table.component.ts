@@ -25,7 +25,6 @@ export class EditTableComponent implements OnInit {
 
   public openDialog(): void {
     const dialogRef = this.dialog.open(EditOweingModalComponent, {
-      width: "250px",
       data: { smashPlayer: this.selectedPlayer } as dialogData
     });
   }

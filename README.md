@@ -14,4 +14,4 @@ Make a copy of `docs/index.html` and name it `docs/404.html`.
 
 Commit your changes and push.
 
-And that's all you need to do! Now you can see your page at `https://anthonyDrury.github.io/smashTracker/`.
+Now you can see your page at `https://anthonyDrury.github.io/smashTracker/`.

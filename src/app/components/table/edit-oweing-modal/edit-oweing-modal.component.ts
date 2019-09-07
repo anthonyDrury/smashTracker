@@ -23,7 +23,7 @@ import { dialogData } from "../edit-table/edit-table.component";
 export class EditOweingModalComponent {
   @ViewChildren("oweAmount") oweList: QueryList<ElementRef<MatInput>>;
 
-  public smashPlayer: smashPlayer;
+  public smashPlayer?: smashPlayer;
 
   public loading: boolean = true;
 

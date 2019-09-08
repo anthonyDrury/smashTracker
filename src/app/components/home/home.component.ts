@@ -1,6 +1,8 @@
 import { ChangeDetectorRef, Component, OnDestroy, OnInit } from "@angular/core";
 import { Select, Store } from "@ngxs/store";
 import { Observable, Subscription } from "rxjs";
+import { take, tap } from "rxjs/operators";
+import { BettingListIncludesPlayerPipe } from "../../pipes/betting-list-includes-player.pipe";
 import {
   AddBettingPlayer,
   DeleteBettingPlayer,
@@ -29,15 +31,24 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   constructor(
     private readonly store: Store,
-    private readonly changeDetector: ChangeDetectorRef
+    private readonly changeDetector: ChangeDetectorRef,
+    private readonly bettingListIncludesPipe: BettingListIncludesPlayerPipe
   ) {}
 
   public addOrRemovePlayerFromBettingList(player: smashPlayer): void {
-    if (!this.bettingList.includes(player)) {
-      this.store.dispatch(new AddBettingPlayer(player));
-    } else {
-      this.store.dispatch(new DeleteBettingPlayer(player));
-    }
+    this.bettingListIncludesPipe
+      .transform(player)
+      .pipe(
+        take(1),
+        tap((bettingListIncludesPlayer: boolean) => {
+          if (bettingListIncludesPlayer) {
+            this.store.dispatch(new DeleteBettingPlayer(player));
+          } else {
+            this.store.dispatch(new AddBettingPlayer(player));
+          }
+        })
+      )
+      .toPromise();
   }
 
   public onPlayerWon(player: smashPlayer): void {

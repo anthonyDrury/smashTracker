@@ -17,7 +17,7 @@
       <app-smash-player-action
         class="smashHome__actionItem"
         [smashPlayer]="smashPlayer"
-        [checked]="bettingList.includes(smashPlayer)"
+        [checked]="smashPlayer | bettingListIncludesPlayer | async"
         (toggle)="addOrRemovePlayerFromBettingList(smashPlayer)"
       ></app-smash-player-action>
     </ng-container>

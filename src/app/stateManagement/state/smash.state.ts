@@ -108,7 +108,7 @@ export class SmashState implements NgxsOnInit {
     });
   }
 
-  // Delete a player
+  // Delete a betting player
   @Action(DeleteBettingPlayer)
   deleteBetter(
     context: StateContext<smashStateModel>,
@@ -138,14 +138,15 @@ export class SmashState implements NgxsOnInit {
 
     // If winning player already owes money to one of the betters
     // Minus money owed to that player insted
-    state.bettingPlayers.forEach((value: smashPlayer) => {
-      if (value.userId === action.player.userId) {
-        value.owes.forEach(oweObj => {
+    state.smashPlayers.forEach((player: smashPlayer, playerIndex: number) => {
+      if (player.userId === action.player.userId) {
+        // If winning player already owes betting losers
+        player.owes.forEach((oweObj: oweObj, oweIndex: number) => {
           if (
             playerNameArr.includes(oweObj.name) &&
             oweObj.amount >= state.bettingValue
           ) {
-            oweObj = {
+            state.smashPlayers[playerIndex].owes[oweIndex] = {
               name: oweObj.name,
               amount: oweObj.amount - state.bettingValue
             };
@@ -156,7 +157,7 @@ export class SmashState implements NgxsOnInit {
     });
 
     // Add money owed for the winning player to all the other players
-    state.bettingPlayers.forEach((player: smashPlayer) => {
+    state.smashPlayers.forEach((player: smashPlayer) => {
       if (
         player.userId !== action.player.userId &&
         playerNameArr.includes(player.name)

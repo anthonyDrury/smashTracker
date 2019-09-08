@@ -1,4 +1,5 @@
 import { NgModule } from "@angular/core";
+import { BettingListIncludesPlayerPipe } from "../../pipes/betting-list-includes-player.pipe";
 import { FormModule } from "../form/form.module";
 import { HomeComponent } from "./home.component";
 import { SmashPlayerActionComponent } from "./smash-player-action/smash-player-action.component";
@@ -12,8 +13,10 @@ import { SmashPlayerWinComponent } from "./smash-player-win/smash-player-win.com
     SmashPlayerActionComponent,
     SmashPlayerWinComponent,
     SmashPlayerTotalComponent,
-    SmashPlayerBiggestComponent
+    SmashPlayerBiggestComponent,
+    BettingListIncludesPlayerPipe
   ],
-  imports: [FormModule]
+  imports: [FormModule],
+  providers: [BettingListIncludesPlayerPipe]
 })
 export class HomeModule {}

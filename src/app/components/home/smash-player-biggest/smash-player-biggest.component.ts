@@ -12,7 +12,9 @@ export class SmashPlayerBiggestComponent {
 
   @Input()
   public set smashPlayers(players: Array<smashPlayer>) {
-    this._smashPlayers = players;
+    this._smashPlayers = new Array(...players);
+    this.biggestLoserValue = 0;
+    this.biggestWinnerValue = 0;
 
     this._smashPlayers.forEach((player: smashPlayer) => {
       if (getTotalOwes(player) > this.biggestLoserValue) {

@@ -157,14 +157,17 @@ export class SmashState implements NgxsOnInit {
     });
 
     // Add money owed for the winning player to all the other players
-    state.smashPlayers.forEach((player: smashPlayer) => {
+    state.smashPlayers.forEach((player: smashPlayer, playerIndex: number) => {
       if (
         player.userId !== action.player.userId &&
         playerNameArr.includes(player.name)
       ) {
-        player.owes.find(
-          (owe: oweObj) => owe.name === action.player.name
-        ).amount += state.bettingValue;
+        player.owes.forEach((owe: oweObj, oweIndex: number) => {
+          if (owe.name === action.player.name) {
+            state.smashPlayers[playerIndex].owes[oweIndex].amount +=
+              state.bettingValue;
+          }
+        });
       }
     });
 

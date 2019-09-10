@@ -1,16 +1,25 @@
 <ng-container *ngIf="smashPlayer">
   <h1 mat-dialog-title>{{ smashPlayer.name }} Oweing</h1>
-  <div mat-dialog-content>
+  <div mat-dialog-content class="oweingModal__input-container">
     <div *ngFor="let owe of smashPlayer.owes">
       <p>{{ owe.name }}</p>
       <input #oweAmount matInput [value]="owe.amount" />
     </div>
   </div>
+
   <div mat-dialog-actions>
-    <button mat-button [disabled]="loading" (click)="onCancel()">cancel</button>
     <button
-      mat-button
+      mat-stroked-button
+      color="accent"
       [disabled]="loading"
+      (click)="onCancel()"
+    >
+      cancel
+    </button>
+    <button
+      mat-stroked-button
+      [disabled]="loading"
+      color="primary"
       (click)="onSubmit()"
       cdkFocusInitial
     >

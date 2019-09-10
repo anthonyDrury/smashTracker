@@ -2,15 +2,11 @@ Home Page
 - Somehow to view/use double or nothings (multiple users can at the same time)
 - Team Battle options
 
-Table Page
-- Ability to manually edit
-
 Rules Page
 - Gather rules and display them
 
 Admin Page
 - Resest double or nothing
-- Reset all/specific values
 - Add/Remove/Edit users
 
 General

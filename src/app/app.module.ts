@@ -13,7 +13,7 @@ import { TableModule } from "./components/table/table.module";
 import { SmashState } from "./stateManagement/state/smash.state";
 
 @NgModule({
-  declarations: [AppComponent, ContentHeaderComponent],
+  declarations: [AppComponent, ContentHeaderComponent, ],
   imports: [
     NgxsModule.forRoot([SmashState]),
     NgxsStoragePluginModule.forRoot(),

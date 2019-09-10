@@ -6,6 +6,7 @@ import {
   DeleteBettingPlayer,
   DeleteSmashPlayer,
   EditSmashPlayerOwes,
+  ResetAllSmashPlayerOwes,
   SmashPlayerWon
 } from "../actions/smash.action";
 import { oweObj, smashPlayer } from "../models/smash.model";
@@ -87,6 +88,43 @@ export class SmashState implements NgxsOnInit {
           (player: smashPlayer) => player.userId !== action.player.userId
         ),
         action.player
+      )
+    });
+  }
+
+  // Rest all amounts owed
+  @Action(ResetAllSmashPlayerOwes)
+  resetAllSmashPlayerOwes(context: StateContext<smashStateModel>): void {
+    const state = context.getState();
+
+    context.patchState({
+      bettingPlayers: new Array(
+        ...state.bettingPlayers.map(
+          (player: smashPlayer): smashPlayer => {
+            return {
+              ...player,
+              owes: player.owes.map(
+                (owe: oweObj): oweObj => {
+                  return { name: owe.name, amount: 0 };
+                }
+              )
+            };
+          }
+        )
+      ),
+      smashPlayers: new Array(
+        ...state.smashPlayers.map(
+          (player: smashPlayer): smashPlayer => {
+            return {
+              ...player,
+              owes: player.owes.map(
+                (owe: oweObj): oweObj => {
+                  return { name: owe.name, amount: 0 };
+                }
+              )
+            };
+          }
+        )
       )
     });
   }

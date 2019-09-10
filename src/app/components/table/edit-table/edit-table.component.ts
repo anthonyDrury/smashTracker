@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from "@angular/core";
+import { Component, Input } from "@angular/core";
 import { MatDialog } from "@angular/material/dialog";
 import { MatSelectChange } from "@angular/material/select";
 import { smashPlayer } from "../../../stateManagement/models/smash.model";
@@ -13,7 +13,7 @@ export interface dialogData {
   templateUrl: "./edit-table.component.html",
   styleUrls: ["./edit-table.component.scss"]
 })
-export class EditTableComponent implements OnInit {
+export class EditTableComponent {
   public selectedPlayer?: smashPlayer;
 
   @Input()
@@ -21,11 +21,8 @@ export class EditTableComponent implements OnInit {
 
   constructor(public dialog: MatDialog) {}
 
-  ngOnInit() {}
-
   public openDialog(): void {
     const dialogRef = this.dialog.open(EditOweingModalComponent, {
-      width: "250px",
       data: { smashPlayer: this.selectedPlayer } as dialogData
     });
   }

@@ -9,4 +9,14 @@ import { tab } from "./content-header.types";
 export class ContentHeaderComponent {
   @Input()
   public tabs?: Array<tab>;
+
+  @Input()
+  public title?: string;
+
+  @Input()
+  public isAppHeader?: boolean = false;
+
+  public adminTab: tab = {
+    path: "/admin"
+  };
 }

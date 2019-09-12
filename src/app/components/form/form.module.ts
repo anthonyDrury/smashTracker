@@ -6,6 +6,7 @@ import { MatRippleModule } from "@angular/material/core";
 import { MatDialogModule } from "@angular/material/dialog";
 import { MatDividerModule } from "@angular/material/divider";
 import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatIconModule } from "@angular/material/icon";
 import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import { MatSelectModule } from "@angular/material/select";
 import { MatSlideToggleModule } from "@angular/material/slide-toggle";
@@ -26,7 +27,8 @@ const importExports: Array<any> = [
   MatDividerModule,
   MatProgressSpinnerModule,
   MatCardModule,
-  MatTabsModule
+  MatTabsModule,
+  MatIconModule
 ];
 
 @NgModule({

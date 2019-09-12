@@ -1,4 +1,15 @@
-<mat-toolbar>smashTracker</mat-toolbar>
+<mat-toolbar *ngIf="title" class="smashHeader__toolbar">
+  {{ title }}
+
+  <a [routerLink]="adminTab.path"
+    ><mat-icon
+      aria-hidden="false"
+      aria-label="admin section"
+      class="smashHeader__admin"
+      >settings_applications</mat-icon
+    >
+  </a>
+</mat-toolbar>
 <nav mat-tab-nav-bar class="smashHeader__nav">
   <a
     mat-tab-link

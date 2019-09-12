@@ -1,4 +1,4 @@
 export type tab = {
-  name: string;
+  name?: string;
   path: string;
 };

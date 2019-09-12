@@ -14,8 +14,3 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
 </table>
-
-<mat-divider></mat-divider>
-
-<app-edit-table [smashPlayers]="smashData$ | async"></app-edit-table>
-<app-reset-table></app-reset-table>

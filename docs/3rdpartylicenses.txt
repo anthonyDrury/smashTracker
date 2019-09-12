@@ -68,9 +68,9 @@ THE SOFTWARE.
 
 @angular/material/dialog
 
-@angular/material/divider
-
 @angular/material/form-field
+
+@angular/material/icon
 
 @angular/material/select
 

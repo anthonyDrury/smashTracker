@@ -1,5 +1,13 @@
 .smashHeader {
+  &__toolbar {
+    display: flex;
+    justify-content: space-between;
+  }
   &__nav {
     margin-bottom: 0.5rem;
+  }
+
+  &__admin {
+    font-size: 2rem;
   }
 }

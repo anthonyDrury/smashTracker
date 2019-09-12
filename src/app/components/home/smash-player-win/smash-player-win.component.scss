@@ -1,12 +1,17 @@
 :host {
-  width: 100%;
-  /* justify-items: center; */
-  /* justify-self: center; */
   display: flex;
   justify-content: center;
-  margin: 1rem;
+}
+.smashWin {
+  min-width: 15rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   button {
     margin-left: 1rem;
+  }
+  &__form-container {
+    flex: 1;
   }
 }

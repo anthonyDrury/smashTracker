@@ -6,6 +6,7 @@ import { NgxsStoragePluginModule } from "@ngxs/storage-plugin";
 import { NgxsModule } from "@ngxs/store";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
+import { AdminModule } from "./components/admin/admin.module";
 import { ContentHeaderComponent } from "./components/content-header/content-header.component";
 import { FormModule } from "./components/form/form.module";
 import { HomeModule } from "./components/home/home.module";
@@ -13,7 +14,7 @@ import { TableModule } from "./components/table/table.module";
 import { SmashState } from "./stateManagement/state/smash.state";
 
 @NgModule({
-  declarations: [AppComponent, ContentHeaderComponent, ],
+  declarations: [AppComponent, ContentHeaderComponent],
   imports: [
     NgxsModule.forRoot([SmashState]),
     NgxsStoragePluginModule.forRoot(),
@@ -22,7 +23,8 @@ import { SmashState } from "./stateManagement/state/smash.state";
     BrowserAnimationsModule,
     HomeModule,
     TableModule,
-    FormModule
+    FormModule,
+    AdminModule
   ],
   providers: [CdkColumnDef],
   bootstrap: [AppComponent]
